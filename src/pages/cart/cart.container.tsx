@@ -10,12 +10,11 @@ type Product = {
 }
 export function Cart(props: ICart) {
 
-    // debugger
-    // Consultar Id de producto
-    // Response -> ¿img? / description / 
-    // 
-
     const [internalState, setInternalState] = useState<Product | null>(null)
+
+    const onButtonClick = (e: any) => {
+        props.onBuyButtonCheck(false);
+    };
 
     useEffect(() => {
 
@@ -51,7 +50,7 @@ export function Cart(props: ICart) {
                         <h3> {internalState.desc} </h3>
                         <img src={internalState.urlImage} alt="" />
                     </div>
-                    <button className="button button1"> COMPRAR</button>
+                    <button className="button button1" onClick={(e) => onButtonClick(e)}> COMPRAR</button>
                     <div className="footer-container">
                         <p>Información del producto</p>
                         <a href={`${props?.urlProduct}=${props?.productId}`} ></a>

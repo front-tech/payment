@@ -9,7 +9,10 @@ export const Success = (props: any) => {
 
 
 	return (
-		<div></div>
+		<div>
+			<h1>Enhorabuena!</h1>
+			<button className="button button1"> GO HOME</button>
+		</div>
 	);
 };
 
