@@ -17,7 +17,8 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "react-scripts build && cpx -v ./build ./docs/",
+        "build": "react-scripts build",
+        "docs": "npm run build && cpx -v ./build ./docs/",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
