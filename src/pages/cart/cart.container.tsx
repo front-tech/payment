@@ -10,17 +10,18 @@ type Product = {
 }
 export function Cart(props: ICart) {
 
+    // debugger
     // Consultar Id de producto
     // Response -> ¿img? / description / 
     // 
 
-    const [internalState, setInernalState] = useState<Product | null>(null)
+    const [internalState, setInternalState] = useState<Product | null>(null)
 
     useEffect(() => {
 
         const search = window.location.search;
 
-        // window.history.replaceState({}, '', `${window.location.pathname}?product=${1}`);
+        window.history.replaceState({}, '', `${window.location.pathname}?product=${1}`);
 
         const trackingNumberParam: string | null = new URLSearchParams(search).get('product');
 
@@ -28,7 +29,7 @@ export function Cart(props: ICart) {
             fetch(`/${trackingNumberParam}.json`)
                 .then((response: any) => response.json())
                 .then(product => {
-                    setInernalState(product)
+                    setInternalState(product)
                 });
         }
 
