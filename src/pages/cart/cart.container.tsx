@@ -25,7 +25,7 @@ export function Cart(props: ICart) {
         const trackingNumberParam: string | null = new URLSearchParams(search).get('product');
 
         if (trackingNumberParam) {
-            fetch(`/${trackingNumberParam}.json`)
+            fetch(`${trackingNumberParam}.json`)
                 .then((response: any) => response.json())
                 .then(product => {
                     setInternalState(product)
