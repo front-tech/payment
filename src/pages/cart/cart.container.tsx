@@ -18,14 +18,14 @@ export function Cart(props: ICart) {
 
     useEffect(() => {
 
+        
         const search = window.location.search;
 
-        window.history.replaceState({}, '', `${window.location.pathname}?product=${1}`);
-
-        const trackingNumberParam: string | null = new URLSearchParams(search).get('product');
+        let trackingNumberParam: string | null = new URLSearchParams(search).get('product');
+        trackingNumberParam= trackingNumberParam ? trackingNumberParam : '1';
 
         if (trackingNumberParam) {
-            fetch(`${trackingNumberParam}.json`)
+            fetch(`./${trackingNumberParam}.json`)
                 .then((response: any) => response.json())
                 .then(product => {
                     setInternalState(product)
