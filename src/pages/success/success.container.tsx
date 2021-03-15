@@ -10,7 +10,7 @@ export const Success = (props: any) => {
 
 	return (
 		<div>
-			<h1>Enhorabuena!</h1>
+			<h1> Has comprado un tractor, eres afortunado</h1>
 			<button className="button button1"> GO HOME</button>
 		</div>
 	);

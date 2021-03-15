@@ -12,23 +12,26 @@ export function Cart(props: ICart) {
 
     const [internalState, setInternalState] = useState<Product | null>(null)
 
-    const onButtonClick = (e: any) => {
-        props.onBuyButtonCheck(false);
-    };
+    // const onButtonClick = (e: any) => {
+    //     props.onBuyButtonCheck(false);
+    // };
 
     useEffect(() => {
 
-        
-        const search = window.location.search;
 
         let trackingNumberParam: string | null = new URLSearchParams(search).get('product');
         trackingNumberParam= trackingNumberParam ? trackingNumberParam : '1';
 
+        const search = window.location.search;
+
+        const trackingNumberParam: string | null = new URLSearchParams(search).get('product');
+debugger
         if (trackingNumberParam) {
             fetch(`./${trackingNumberParam}.json`)
                 .then((response: any) => response.json())
                 .then(product => {
-                    setInternalState(product)
+                    debugger
+                    setInternalState(product);
                 });
         }
 
@@ -50,10 +53,12 @@ export function Cart(props: ICart) {
                         <h3> {internalState.desc} </h3>
                         <img src={internalState.urlImage} alt="" />
                     </div>
-                    <button className="button button1" onClick={(e) => onButtonClick(e)}> COMPRAR</button>
+                    <a className="button button1" href="/payment/success"> COMPRAR</a>
+                    {/* <button className="button button1" onClick={(e) => onButtonClick(e)}> COMPRAR</button> */}
                     <div className="footer-container">
                         <p>Información del producto</p>
                         <a href={`${props?.urlProduct}=${props?.productId}`} ></a>
+                        {/* <a href='/success' > link</a> */}
                     </div>
                 </div>
             )

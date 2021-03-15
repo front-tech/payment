@@ -1,22 +1,31 @@
 import './App.css';
 import { Cart } from './pages/cart/cart.container'
 import { Success } from './pages/success/success.container'
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
 
-    const [state, setState] = useState(true);
+    // const [state, setState] = useState(true);
 
-    const showSuccessPage = (e) => {
-        setState(e);
-    }
+    // const showSuccessPage = (e) => {
+    //     setState(e);
+    // }
 
     return (
         <div className="App">
-            { state
+            <BrowserRouter>
+                <Route path="/">
+                    <Cart />
+                </Route>
+                <Route path="/payment/success">
+                    <Success />
+                </Route>
+            </BrowserRouter>
+            {/* { state
                 ? <Cart onBuyButtonCheck={(e) => showSuccessPage(e)} />
                 : <Success />
-            }
+            } */}
         </div>
     );
 }
