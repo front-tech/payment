@@ -1,53 +1,63 @@
 import './cart.container.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ICart } from './cart.models';
 
+type Product = {
+    title: string,
+    urlImage: string,
+    desc: string,
+    price: number
+}
 export function Cart(props: ICart) {
 
     // Consultar Id de producto
     // Response -> ¿img? / description / 
     // 
 
-    // useEffect(() => {
-    // }, []);
+    const [internalState, setInernalState] = useState<Product | null>(null)
 
+    useEffect(() => {
 
-        // {
-        //     desc: 'Lorem impsut',
-        //     title: 'Tractor Porche',
-        //     price: 100,
-        //     urlImage: './assets/images/reco_1.jpg'
-        // },
-        // {
-        //     desc: 'Lorem impsut',
-        //     title: 'Tractor Porche',
-        //     price: 100,
-        //     urlImage: './assets/images/reco_1.jpg'
-        // },
-        // {
-        //     desc: 'Lorem impsut',
-        //     title: 'Tractor Porche',
-        //     price: 100,
-        //     urlImage: './assets/images/reco_1.jpg'
-        // }
-  
+        const search = window.location.search;
 
+        // window.history.replaceState({}, '', `${window.location.pathname}?product=${1}`);
+
+        const trackingNumberParam: string | null = new URLSearchParams(search).get('product');
+
+        if (trackingNumberParam) {
+            fetch(`/${trackingNumberParam}.json`)
+                .then((response: any) => response.json())
+                .then(product => {
+                    setInernalState(product)
+                });
+        }
+
+    }, []);
 
     return (
         <div>
-            <div>
-                <img src="./assets/images/reco_1.jpg" alt="" />
-                <h1> Cart </h1>
-            </div>
-            <div>
-                <a href={`${props?.urlProduct}=${props?.productId}`} ></a>
-            </div>
-            <div>
-                <h1> Titulo</h1>
-                <h1> Imagen</h1>
-                <h1> Descripcion</h1>
-                <button> COMPRAR</button>
-            </div>
+            { internalState && (
+                <div>
+                    <div className="header-container">
+                        <figure>
+                            <img className="img" src="./carrito.png" alt="" />
+                        </figure>
+                        <h1> Cart </h1>
+                    </div>
+                    <div className="body-container">
+                        <h1> {internalState.title}</h1>
+                        <h2> {internalState.price}$</h2>
+                        <h3> {internalState.desc} </h3>
+                        <img src={internalState.urlImage} alt="" />
+                    </div>
+                    <button className="button button1"> COMPRAR</button>
+                    <div className="footer-container">
+                        <p>Información del producto</p>
+                        <a href={`${props?.urlProduct}=${props?.productId}`} ></a>
+                    </div>
+                </div>
+            )
+            }
         </div>
     );
 };
