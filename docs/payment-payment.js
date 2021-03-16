@@ -323,6 +323,7 @@ var Success = function Success(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {}, []);
 
   var redirectHome = function redirectHome(e) {
+    e.preventDefault();
     (0,single_spa__WEBPACK_IMPORTED_MODULE_2__.navigateToUrl)('/');
   };
 

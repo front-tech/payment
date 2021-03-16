@@ -7,6 +7,7 @@ export const Success = (props: any) => {
 	useEffect(() => {
 	}, []);
 	const redirectHome = (e) => {
+		e.preventDefault();
 		navigateToUrl('/');
 	}
 
