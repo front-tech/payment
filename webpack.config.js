@@ -1,8 +1,10 @@
 const webpackMerge = require('webpack-merge');
 const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
+// const { mergeWithRules } = require('webpack-merge');
 
 module.exports = (webpackConfigEnv, argv) => {
     const defaultConfig = singleSpaDefaults({
+
         // The name of the organization this application is written for
         orgName: 'payment',
 
@@ -29,7 +31,11 @@ module.exports = (webpackConfigEnv, argv) => {
         disableHtmlGeneration: false
     })
 
-    return webpackMerge.smart(defaultConfig, {
+    const test = webpackMerge.smart(defaultConfig, {
         // modify the webpack config however you'd like to by adding to this object
+        entry: './src/main.tsx'
     })
+    delete test.devServer;
+
+    return test;
 }

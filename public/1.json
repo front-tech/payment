@@ -1,6 +1,6 @@
 {
-  "desc": "tractor azul de gran reprix",
-  "title": "Tractor Porche",
-  "price": 100,
-  "urlImage": "./assets/images/tractor-blue-thumb.jpg"
+    "desc": "tractor azul de gran reprix",
+    "title": "Tractor Porche",
+    "price": 100,
+    "urlImage": "https://front-tech.github.io/payment/assets/images/tractor-blue-thumb.jpg"
 }
