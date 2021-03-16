@@ -1,15 +1,14 @@
-const webpackMerge = require('webpack-merge');
-const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
+const webpackMerge = require("webpack-merge");
+const singleSpaDefaults = require("webpack-config-single-spa-react-ts");
 // const { mergeWithRules } = require('webpack-merge');
 
 module.exports = (webpackConfigEnv, argv) => {
     const defaultConfig = singleSpaDefaults({
-
         // The name of the organization this application is written for
-        orgName: 'payment',
+        orgName: "payment",
 
         // The name of the current project. This usually matches the git repo's name
-        projectName: 'payment',
+        projectName: "payment",
 
         // optional
         // This changes whether package names that start with @your-org-name are
@@ -28,14 +27,13 @@ module.exports = (webpackConfigEnv, argv) => {
 
         // optional, defaults to false.
         // When true, this removes html-webpack-plugin and standalone-single-spa-webpack-plugin
-        disableHtmlGeneration: false
-    })
-
-    const test = webpackMerge.smart(defaultConfig, {
+        disableHtmlGeneration: false,
+    });
+    const finalConfig = webpackMerge.smart(defaultConfig, {
         // modify the webpack config however you'd like to by adding to this object
-        entry: './src/main.tsx'
-    })
-    delete test.devServer;
+        entry: "./src/main.tsx",
+    });
+    delete finalConfig.devServer;
 
-    return test;
-}
+    return finalConfig;
+};
