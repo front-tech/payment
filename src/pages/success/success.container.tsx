@@ -6,14 +6,14 @@ export const Success = (props: any) => {
 
 	useEffect(() => {
 	}, []);
-	function redirect(){
+	const redirectHome = (e) => {
 		navigateToUrl('/');
 	}
 
 	return (
 		<div>
 			<h1>Enhorabuena!</h1>
-			<button className="button button1" onClick={redirect} > GO HOME</button>
+			<button className="button button1" onClick={(e) => redirectHome(e)} > GO HOME </button>
 		</div>
 	);
 };
