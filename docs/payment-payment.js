@@ -1,8 +1,10 @@
-System.register(["react","react-dom"], function(__WEBPACK_DYNAMIC_EXPORT__, __system_context__) {
+System.register(["react","react-dom","single-spa"], function(__WEBPACK_DYNAMIC_EXPORT__, __system_context__) {
 	var __WEBPACK_EXTERNAL_MODULE_react__ = {};
 	var __WEBPACK_EXTERNAL_MODULE_react_dom__ = {};
+	var __WEBPACK_EXTERNAL_MODULE_single_spa__ = {};
 	Object.defineProperty(__WEBPACK_EXTERNAL_MODULE_react__, "__esModule", { value: true });
 	Object.defineProperty(__WEBPACK_EXTERNAL_MODULE_react_dom__, "__esModule", { value: true });
+	Object.defineProperty(__WEBPACK_EXTERNAL_MODULE_single_spa__, "__esModule", { value: true });
 	return {
 		setters: [
 			function(module) {
@@ -13,6 +15,11 @@ System.register(["react","react-dom"], function(__WEBPACK_DYNAMIC_EXPORT__, __sy
 			function(module) {
 				Object.keys(module).forEach(function(key) {
 					__WEBPACK_EXTERNAL_MODULE_react_dom__[key] = module[key];
+				});
+			},
+			function(module) {
+				Object.keys(module).forEach(function(key) {
+					__WEBPACK_EXTERNAL_MODULE_single_spa__[key] = module[key];
 				});
 			}
 		],
@@ -308,13 +315,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _success_container_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./success.container.css */ "./src/pages/success/success.container.css");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var single_spa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! single-spa */ "single-spa");
+
 
 
 var Success = function Success(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {}, []);
+
+  var redirectHome = function redirectHome(e) {
+    (0,single_spa__WEBPACK_IMPORTED_MODULE_2__.navigateToUrl)('/');
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.default.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.default.createElement("h1", null, "Enhorabuena!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.default.createElement("button", {
-    className: "button button1"
-  }, " GO HOME"));
+    className: "button button1",
+    onClick: function onClick(e) {
+      return redirectHome(e);
+    }
+  }, " GO HOME "));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Success);
 
@@ -889,6 +906,17 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 
 "use strict";
 module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom__;
+
+/***/ }),
+
+/***/ "single-spa":
+/*!*****************************!*\
+  !*** external "single-spa" ***!
+  \*****************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = __WEBPACK_EXTERNAL_MODULE_single_spa__;
 
 /***/ })
 
