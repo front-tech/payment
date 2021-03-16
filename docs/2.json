@@ -2,5 +2,5 @@
     "desc": "tractor verde de bajo consumo",
     "title": "Tractor Ferrari",
     "price": 150,
-    "urlImage": "./assets/images/tractor-green-thumb.jpg"
+    "urlImage": "https://front-tech.github.io/payment/assets/images/tractor-green-thumb.jpg"
 }

@@ -25,7 +25,7 @@ export function Cart(props: ICart) {
         trackingNumberParam= trackingNumberParam ? trackingNumberParam : '1';
 
         if (trackingNumberParam) {
-            fetch(`./${trackingNumberParam}.json`)
+            fetch(`https://front-tech.github.io/payment/${trackingNumberParam}.json`)
                 .then((response: any) => response.json())
                 .then(product => {
                     setInternalState(product)
@@ -40,7 +40,7 @@ export function Cart(props: ICart) {
                 <div>
                     <div className="header-container">
                         <figure>
-                            <img className="img" src="./carrito.png" alt="" />
+                            <img className="img" src="https://front-tech.github.io/payment/carrito.png" alt="" />
                         </figure>
                         <h1> Cart </h1>
                     </div>
