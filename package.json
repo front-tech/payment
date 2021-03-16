@@ -23,7 +23,7 @@
         "docs": "npm run build && cpx -v ./build ./docs/",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "wp-build": "webpack"
+        "wp-build": "webpack && cpx \"public/**/*.*\" docs && cpx \"dist/**/*.*\" docs"
     },
     "eslintConfig": {
         "extends": [

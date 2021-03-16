@@ -262,7 +262,7 @@ function Cart(props) {
     trackingNumberParam = trackingNumberParam ? trackingNumberParam : '1';
 
     if (trackingNumberParam) {
-      fetch("./".concat(trackingNumberParam, ".json")).then(function (response) {
+      fetch("https://front-tech.github.io/payment/".concat(trackingNumberParam, ".json")).then(function (response) {
         return response.json();
       }).then(function (product) {
         setInternalState(product);
@@ -273,7 +273,7 @@ function Cart(props) {
     className: "header-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.default.createElement("figure", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.default.createElement("img", {
     className: "img",
-    src: "./carrito.png",
+    src: "https://front-tech.github.io/payment/carrito.png",
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.default.createElement("h1", null, " Cart ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.default.createElement("div", {
     className: "body-container"
